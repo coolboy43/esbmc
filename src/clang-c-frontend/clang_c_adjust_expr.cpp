@@ -333,7 +333,7 @@ void clang_c_adjust::adjust_expr_pointer_arithmetic(exprt &expr)
     else
       abort();
 
-    gen_typecast(ns, *intop, index_type());
+    gen_typecast(ns, *intop, pop->type());
     expr.type() = pop->type();
   }
 }
