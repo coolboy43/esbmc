@@ -2550,6 +2550,9 @@ tvt smt_convt::l_get(smt_astt a)
 
 expr2tc smt_convt::build_bv(const type2tc &type, BigInt value)
 {
+  if(is_bool_type(type))
+    return value == 0 ? gen_false_expr() : gen_true_expr();
+
   if(is_fixedbv_type(type))
   {
     fixedbvt fbv(constant_exprt(
